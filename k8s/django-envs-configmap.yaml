@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  DJANGO_ADMIN_URL: /admin
+  DJANGO_DEBUG: "True"
+  DJANGO_SECRET_KEY: django_secret
+  DJANGO_SETTINGS_MODULE: src.main.settings
+  WEB_CONCURRENCY: "4"
+metadata:
+  name: django-envs

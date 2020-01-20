@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+  postgres_data: {}
+  static_volume: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: pentux/pygrn_k8s_workshop:latest
+    volumes:
+      - .:/code
+      - static_volume:/code/static
+    depends_on:
+      - postgres
+    env_file:
+      - ./.envs/.django
+      - ./.envs/.postgres
+    command: /start
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/.postgres
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./compose/nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/code/static
+    depends_on:
+      - django
