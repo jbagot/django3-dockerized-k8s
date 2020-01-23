@@ -4,7 +4,10 @@ data:
   DJANGO_ADMIN_URL: /admin
   DJANGO_DEBUG: "True"
   DJANGO_SECRET_KEY: django_secret
-  DJANGO_SETTINGS_MODULE: src.main.settings
+  DJANGO_SETTINGS_MODULE: main.settings
   WEB_CONCURRENCY: "4"
+  SUPERUSER_NAME: admin
+  SUPERUSER_EMAIL: admin@pygrn.cat
+  SUPERUSER_PASSWORD: admin
 metadata:
   name: django-envs

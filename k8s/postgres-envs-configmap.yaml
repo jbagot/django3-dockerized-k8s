@@ -6,6 +6,6 @@ data:
   POSTGRES_HOST: postgres
   POSTGRES_PASSWORD: postgres_secret
   POSTGRES_PORT: "5432"
-  POSTGRES_USER: postgres_user
+  POSTGRES_USER: postgres
 metadata:
   name: postgres-envs
